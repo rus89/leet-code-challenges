@@ -1,4 +1,4 @@
-namespace Problems;
+namespace ChallengesForNewUsers.Challenge_02;
 
 public class PalindromeLinkedList
 {

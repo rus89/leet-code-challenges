@@ -1,4 +1,4 @@
-﻿namespace Problems
+﻿namespace ChallengesForNewUsers.Challenge_01
 {
     public static class RomanToIntegerSolution
     {
