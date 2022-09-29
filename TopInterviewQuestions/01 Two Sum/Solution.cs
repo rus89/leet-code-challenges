@@ -1,4 +1,4 @@
-namespace Problems.Top_Interview_Questions._01_Two_Sum;
+namespace TopInterviewQuestions._01_Two_Sum;
 
 public class Solution
 {
@@ -9,15 +9,32 @@ public class Solution
      */
     public int[] TwoSum(int[] nums, int target)
     {
-        for (int i = 0; i < nums.Length; i++)
+        List<int> allNums = new List<int>(nums);
+        for (var i = 0; i < nums.Length; i++)
         {
             int subtract = target - nums[i];
-            int found = nums.Skip(i).First(e => e == subtract);
-            if (found > 0)
+            allNums.Remove(nums[i]);
+            if (allNums.Contains(subtract))
             {
-                return new[] {i, Array.IndexOf(nums, found)};
+                return new[] { i, Array.IndexOf(nums, subtract, i + 1) };
             }
         }
-        return new int[] { };
+
+        return Array.Empty<int>();
+    }
+
+    public int[] TwoSumLeetCode(int[] numbers, int target)
+    {
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        for (int i = 0; i < numbers.Length; map.Add(numbers[i], ++i))
+            if (map.ContainsKey(target - numbers[i]))
+            {
+                if (map.TryGetValue(target - numbers[i], out var a))
+                {
+                    return new[] { a - 1, i };
+                }
+            }
+
+        return new[] { 0, 0 };
     }
 }
