@@ -1,19 +1,9 @@
+using Utilities;
+
 namespace ChallengesForNewUsers.Challenge_02;
 
 public class PalindromeLinkedList
 {
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     /*
      * trenutno me najvise muci to sto kazu da daju head linkovane liste, a onda u primeru dole stoji [1,2,2,1]
      * sto nije head vec cela lista

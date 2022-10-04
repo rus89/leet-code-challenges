@@ -1,19 +1,9 @@
+using Utilities;
+
 namespace TopInterviewQuestions._02_Add_Two_Numbers;
 
 public class Solution
 {
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
     {
         ListNode currentNode = l1;

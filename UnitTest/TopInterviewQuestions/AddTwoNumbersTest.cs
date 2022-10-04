@@ -1,5 +1,6 @@
-using TopInterviewQuestions._02_Add_Two_Numbers;
+using Utilities;
 using Xunit;
+using Solution = TopInterviewQuestions._02_Add_Two_Numbers.Solution;
 
 namespace UnitTest.TopInterviewQuestions;
 
@@ -11,14 +12,14 @@ public class AddTwoNumbersTest
         Solution solution = new Solution();
         // Assert.Equal(new[] { 5, 0 }, solution.TestNullCoalescingOperator());
 
-        Solution.ListNode ln1 = new Solution.ListNode(2, new Solution.ListNode(4, new Solution.ListNode(3)));
-        Solution.ListNode ln2 = new Solution.ListNode(5, new Solution.ListNode(6, new Solution.ListNode(4)));
-        Solution.ListNode actual = new Solution.ListNode(7, new Solution.ListNode(0, new Solution.ListNode(8)));
+        ListNode ln1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+        ListNode ln2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+        ListNode actual = new ListNode(7, new ListNode(0, new ListNode(8)));
         Assert.Equal(solution.AddTwoNumbersLeetCode(ln1, ln2), actual);
         
-        Solution.ListNode ln3 = new Solution.ListNode();
-        Solution.ListNode ln4 = new Solution.ListNode();
-        Assert.Equal(solution.AddTwoNumbersLeetCode(ln3, ln4), new Solution.ListNode());
+        ListNode ln3 = new ListNode();
+        ListNode ln4 = new ListNode();
+        Assert.Equal(solution.AddTwoNumbersLeetCode(ln3, ln4), new ListNode());
 
         // Solution.ListNode ln5 = new Solution.ListNode(9,
         //     new Solution.ListNode(9,
