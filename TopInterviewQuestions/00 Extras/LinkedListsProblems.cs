@@ -24,4 +24,30 @@ public class LinkedListsProblems
         currentNode.next = null;
         return head;
     }
+
+    public ListNode DeleteAllDuplicateNodesIterative(ListNode head)
+    {
+        ListNode dummy = new ListNode
+        {
+            next = head
+        };
+        ListNode currentNode = dummy;
+        while (currentNode.next != null && currentNode.next.next != null)
+        {
+            if (currentNode.next.val == currentNode.next.next.val)
+            {
+                var duplicate = currentNode.next.val;
+                while (currentNode.next != null && currentNode.next.val == duplicate)
+                {
+                    currentNode.next = currentNode.next.next;
+                }
+            }
+            else
+            {
+                currentNode = currentNode.next;
+            }
+        }
+
+        return dummy.next;
+    }
 }
