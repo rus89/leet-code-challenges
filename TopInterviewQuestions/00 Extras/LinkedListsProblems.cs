@@ -50,4 +50,25 @@ public class LinkedListsProblems
 
         return dummy.next;
     }
+
+    public ListNode DeleteAllDuplicateNodesRecursive(ListNode head)
+    {
+        if (head == null) return null;
+        if (head.next == null) return head;
+        int headValue = head.val;
+        ListNode nextNode = head.next;
+        if (nextNode.val != headValue)
+        {
+            head.next = DeleteAllDuplicateNodesRecursive(nextNode);
+            return head;
+        }
+
+        while (nextNode != null && nextNode.val == headValue)
+        {
+            nextNode = nextNode.next;
+            return DeleteAllDuplicateNodesRecursive(nextNode);
+        }
+
+        return null!;
+    }
 }
