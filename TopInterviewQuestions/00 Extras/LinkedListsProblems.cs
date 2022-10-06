@@ -129,7 +129,32 @@ public class LinkedListsProblems
             fast = fast.next;
             head = head.next;
         }
-        
+
         return fast == null;
+    }
+
+    public ListNode RotateToTheRight(ListNode head, int k)
+    {
+        if (head == null) return head;
+
+        int length = 1;
+        ListNode last = head;
+        while (last.next != null)
+        {
+            length++;
+            last = last.next;
+        }
+
+        last.next = head;
+        if (k == k % length)
+        {
+            for (int i = 0; i < length - k; i++, last = last.next)
+            {
+            }
+        }
+
+        ListNode newHead = last.next;
+        last.next = null;
+        return newHead;
     }
 }

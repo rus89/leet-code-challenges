@@ -100,4 +100,34 @@ public class LinkedListProblemsTest
         ListNode actual2 = new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1)))));
         Assert.True(linkedListsProblems.IsPureLinkedListPalindrome(actual2));
     }
+
+    [Fact]
+    public static void DoesItRotateLinkedListToTheRight()
+    {
+        LinkedListsProblems linkedListsProblems = new LinkedListsProblems();
+        
+        ListNode actual = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode expected = new ListNode(4, new ListNode(5, new ListNode(1, new ListNode(2, new ListNode(3)))));
+        Assert.Equivalent(expected, linkedListsProblems.RotateToTheRight(actual, 2));
+        
+        ListNode actual1 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode expected1 = new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(1, new ListNode(2)))));
+        Assert.Equivalent(expected1, linkedListsProblems.RotateToTheRight(actual1, 3));
+        
+        ListNode actual2 = null;
+        ListNode expected2 = actual2;
+        Assert.Equivalent(expected2, linkedListsProblems.RotateToTheRight(actual2, 2));
+        
+        ListNode actual3 = new ListNode(1, new ListNode(1, new ListNode(3, new ListNode(5, new ListNode(5)))));
+        ListNode expected3 = new ListNode(1, new ListNode(3, new ListNode(5, new ListNode(5, new ListNode(1)))));
+        Assert.Equivalent(expected3, linkedListsProblems.RotateToTheRight(actual3, 4));
+        
+        ListNode actual4 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode expected4 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        Assert.Equivalent(expected4, linkedListsProblems.RotateToTheRight(actual4, 5));
+        
+        ListNode actual5 = new ListNode(1, new ListNode(2, new ListNode(3)));
+        ListNode expected5 = new ListNode(3, new ListNode(1, new ListNode(2)));
+        Assert.Equivalent(expected5, linkedListsProblems.RotateToTheRight(actual5, 1));
+    }
 }
