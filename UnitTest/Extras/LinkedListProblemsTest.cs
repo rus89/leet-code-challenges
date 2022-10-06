@@ -70,4 +70,34 @@ public class LinkedListProblemsTest
         ListNode expected5 = new ListNode(1, new ListNode(2, new ListNode(3)));
         Assert.Equivalent(expected5, linkedListsProblems.DeleteAllDuplicateNodesRecursive(actual5));
     }
+
+    [Fact]
+    public static void IsItPalindromeList()
+    {
+        LinkedListsProblems linkedListsProblems = new LinkedListsProblems();
+        
+        ListNode actual = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(2, new ListNode(1)))));
+        Assert.True(linkedListsProblems.IsPalindrome(actual));
+        
+        ListNode actual1 = new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(2)))));
+        Assert.False(linkedListsProblems.IsPalindrome(actual1));
+        
+        ListNode actual2 = new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1)))));
+        Assert.True(linkedListsProblems.IsPalindrome(actual2));
+    }
+
+    [Fact]
+    public static void IsItPureLinkedListPalindrome()
+    {
+        LinkedListsProblems linkedListsProblems = new LinkedListsProblems();
+        
+        ListNode actual = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(2, new ListNode(1)))));
+        Assert.True(linkedListsProblems.IsPureLinkedListPalindrome(actual));
+        
+        ListNode actual1 = new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(2)))));
+        Assert.False(linkedListsProblems.IsPureLinkedListPalindrome(actual1));
+        
+        ListNode actual2 = new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1)))));
+        Assert.True(linkedListsProblems.IsPureLinkedListPalindrome(actual2));
+    }
 }
