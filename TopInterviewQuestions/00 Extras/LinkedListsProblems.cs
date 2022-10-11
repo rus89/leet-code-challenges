@@ -157,4 +157,31 @@ public class LinkedListsProblems
         last.next = null;
         return newHead;
     }
+
+    public ListNode ReverseBetween(ListNode head, int m, int n)
+    {
+        ListNode newHead = new ListNode();
+        newHead.next = head;
+        ListNode previousNode = newHead;
+        ListNode currentNode = head;
+        int i = 1;
+
+        while (i < n)
+        {
+            if (i++ < m)
+            {
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            else
+            {
+                var nextNode = currentNode.next;
+                currentNode.next = currentNode.next.next;
+                nextNode.next = previousNode.next;
+                previousNode.next = nextNode;
+            }
+        }
+        
+        return newHead.next;
+    }
 }

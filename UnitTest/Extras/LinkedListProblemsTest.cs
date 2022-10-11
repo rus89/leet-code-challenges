@@ -130,4 +130,15 @@ public class LinkedListProblemsTest
         ListNode expected5 = new ListNode(3, new ListNode(1, new ListNode(2)));
         Assert.Equivalent(expected5, linkedListsProblems.RotateToTheRight(actual5, 1));
     }
+
+    [Fact]
+    public static void DoesItReverseLinkedListBetweenMAndN()
+    {
+        LinkedListsProblems linkedListsProblems = new LinkedListsProblems();
+
+        ListNode actual = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode expected = new ListNode(1, new ListNode(4, new ListNode(3, new ListNode(2, new ListNode(5)))));
+        const int m = 2, n = 4;
+        Assert.Equivalent(expected, linkedListsProblems.ReverseBetween(actual, m, n));
+    }
 }
