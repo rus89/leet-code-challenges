@@ -155,4 +155,18 @@ public class LinkedListProblemsTest
         ListNode actual1 = new ListNode(1);
         Assert.True(linkedListsProblems.DetectCycle(actual1) == null);
     }
+
+    [Fact]
+    public static void DoesItReverseInKGroup()
+    {
+        LinkedListsProblems linkedListsProblems = new LinkedListsProblems();
+
+        ListNode actual = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode expected = new ListNode(2, new ListNode(1, new ListNode(4, new ListNode(3, new ListNode(5)))));
+        Assert.Equivalent(expected, linkedListsProblems.ReverseKGroup(actual, 2));
+        
+        ListNode actual1 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode expected1 = new ListNode(3, new ListNode(2, new ListNode(1, new ListNode(4, new ListNode(5)))));
+        Assert.Equivalent(expected1, linkedListsProblems.ReverseKGroup(actual1, 3));
+    }
 }

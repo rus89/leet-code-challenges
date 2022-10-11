@@ -181,7 +181,7 @@ public class LinkedListsProblems
                 previousNode.next = nextNode;
             }
         }
-        
+
         return newHead.next;
     }
 
@@ -204,7 +204,38 @@ public class LinkedListsProblems
             slow = slow.next;
             fast = fast.next;
         }
-        
+
         return null;
+    }
+
+    public ListNode ReverseKGroup(ListNode head, int k)
+    {
+        if (head == null || head.next == null) return head;
+        ListNode newHead = new ListNode();
+        ListNode previousNode = newHead;
+        ListNode currentNode = head;
+        newHead.next = head;
+        int length = 0;
+        for (ListNode p = head; p != null; p = p.next) length++;
+        int times = length / k;
+        while (times > 0)
+        {
+            for (int i = 1; i < k; i++)
+            {
+                var nextNode = currentNode.next;
+                currentNode.next = currentNode.next.next;
+                nextNode.next = previousNode.next;
+                previousNode.next = nextNode;
+                if (i == k - 1)
+                {
+                    previousNode = currentNode;
+                    currentNode = currentNode.next;
+                }
+            }
+
+            times--;
+        }
+
+        return newHead.next;
     }
 }
