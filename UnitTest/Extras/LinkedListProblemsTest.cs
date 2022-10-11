@@ -141,4 +141,18 @@ public class LinkedListProblemsTest
         const int m = 2, n = 4;
         Assert.Equivalent(expected, linkedListsProblems.ReverseBetween(actual, m, n));
     }
+
+    [Fact]
+    public static void IsThereCycleInLinkedList()
+    {
+        LinkedListsProblems linkedListsProblems = new LinkedListsProblems();
+
+        ListNode second = null;
+        second = new ListNode(2, new ListNode(0, new ListNode(-4, second)));
+        ListNode actual = new ListNode(3, second);
+        Assert.True(linkedListsProblems.DetectCycle(actual) != null);
+
+        ListNode actual1 = new ListNode(1);
+        Assert.True(linkedListsProblems.DetectCycle(actual1) == null);
+    }
 }
